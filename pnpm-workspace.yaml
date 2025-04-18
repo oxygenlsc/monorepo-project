@@ -1,0 +1,7 @@
+packages:
+  # packages/ 直接子目录中的所有包
+  - 'apps/*'
+  # components/ 子目录中的所有包
+  - 'components/**'
+  # utils/ 公共utils包
+  - 'utils/**'

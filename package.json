@@ -1,0 +1,27 @@
+{
+  "name": "monorepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:all": "concurrently \"cd apps/base && pnpm dev\" \"cd apps/child-one && npm run dev\" \"cd apps/child-two && npm run dev\"",
+    "start:child-one": "cd apps/child-one && npm run dev",
+    "start:child-two": "cd apps/child-two && npm run dev",
+    "start:base": "cd apps/base && pnpm dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.8.1",
+  "dependencies": {
+    "@arco-design/web-vue": "^2.57.0",
+    "pinia": "^3.0.1",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "less": "^4.2.2"
+  }
+}
