@@ -1,17 +1,16 @@
 <script setup>
-import { onMounted } from 'vue'
-import { RouterView } from 'vue-router';
-import { apiGetAllFields } from './api/test';
-import LayOut from './components/LayOut.vue';
-
+// import { onMounted } from 'vue'
+import { RouterView } from "vue-router";
+// import { apiGetAllFields } from "./api/test";
+import LayOut from "./components/LayOut.vue";
 </script>
 
 <template>
-    <LayOut>
-    <router-view /> <!-- 外部传入router-view -->
-    <div id="mainContainer" >
-    </div>
-   </LayOut>
+  <LayOut>
+    <router-view />
+    <!-- 外部传入router-view -->
+    <div id="mainContainer">{{ fff }}ddd</div>
+  </LayOut>
 </template>
 
 <style scoped>
