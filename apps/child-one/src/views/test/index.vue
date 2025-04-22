@@ -4,10 +4,15 @@ import { qiankunRouter, qiankunEvent, qiankunStore } from "@lisc/utils";
 import { apiGetAllFields } from "../../api/test";
 import { MyButton } from "@lisc/components";
 import { useCounterStore } from "@/stores/counter";
+import { qiankunWindow } from "vite-plugin-qiankun/dist/helper";
 const counterStore = useCounterStore();
 const token = ref("");
 const handlejump = () => {
-  qiankunRouter.push("/childTwo/test", true);
+  if (qiankunWindow.__POWERED_BY_QIANKUN__) {
+    qiankunRouter.push("/childTwo/test", true);
+  } else {
+    window.location.href = "http://localhost:5175/childTwo/test";
+  }
 };
 const handlejumpSelf = () => {
   qiankunRouter.push({

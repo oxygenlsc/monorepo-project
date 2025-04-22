@@ -38,9 +38,9 @@ renderWithQiankun({
     // qiankunRouter.setPreRouter(basePath) // 全局处理activeRule
     render(props);
   },
-  unmount: function (props) {
+  unmount: function () {
     app.unmount();
     app = null;
   },
-  update: function (props) {},
+  update: function () {},
 });
