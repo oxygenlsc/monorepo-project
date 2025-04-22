@@ -50,6 +50,7 @@ start({
     experimentalStyleIsolation: true, // 启用样式隔离
   },
 });
+// 解决浏览器自带回退前进按钮bug
 router.beforeEach(async (to, from, next) => {
   try {
     if (to.path !== from.path) {
