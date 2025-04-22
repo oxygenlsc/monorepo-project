@@ -1,8 +1,25 @@
 <script setup>
-// import { onMounted } from 'vue'
+import { onMounted } from "vue";
 import { RouterView } from "vue-router";
+import { qiankunEvent, qiankunStore } from "@lisc/utils";
 // import { apiGetAllFields } from "./api/test";
 import LayOut from "./components/LayOut.vue";
+function login() {
+  setTimeout(() => {
+    // 登录成功，储存token
+    qiankunStore.set("token", Math.random(1, 10).toString());
+    alert("登录成功模拟");
+    // 跳转去访问子应用
+  }, 1000);
+}
+onMounted(() => {
+  // 订阅loading事件
+  qiankunEvent.on("loading", (name, args) => {
+    console.log(name, args, "123");
+    alert("触发事件：" + name + "，参数：" + args);
+  });
+  login();
+});
 </script>
 
 <template>

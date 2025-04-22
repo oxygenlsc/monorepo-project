@@ -1,21 +1,30 @@
-import js from '@eslint/js';
-import vuePlugin from 'eslint-plugin-vue';
+import js from "@eslint/js";
+import globals from "globals";
+import pluginVue from "eslint-plugin-vue";
+import { defineConfig } from "eslint/config";
+import prettierConfig from "eslint-config-prettier"; // 新增：Prettier 兼容配置
 
-export default [
-  js.configs.recommended,
+export default defineConfig([
   {
-    files: ['**/*.js', '**/*.vue'],
-    languageOptions: {
-      ecmaVersion: 'latest',
-      sourceType: 'module'
-    },
-    plugins: {
-      vue: vuePlugin
-    },
+    files: ["**/*.{js,mjs,cjs,vue}"],
+    plugins: { js },
+    extends: ["js/recommended"],
+  },
+  {
+    files: ["**/*.{js,mjs,cjs,vue}"],
+    languageOptions: { globals: globals.browser },
+  },
+  pluginVue.configs["flat/essential"],
+  {
     rules: {
-      'vue/multi-word-component-names': 'off',
-      'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-      'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
-    }
-  }
-];
+      "vue/comment-directive": "error",
+      "vue/multi-word-component-names": [
+        "error",
+        {
+          ignores: ["index"],
+        },
+      ],
+    },
+  },
+  prettierConfig,
+]);

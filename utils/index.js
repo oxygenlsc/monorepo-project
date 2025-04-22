@@ -1,3 +1,4 @@
-export * from './useAxiosApi'
-export * from './useQiankunBaseRouter'
-export * from './qiankunChildRouter'
+export * from "./useAxiosApi";
+export * from "./qkBaseRouter";
+export * from "./qkChildRouter";
+export * from "./qkCommunication";

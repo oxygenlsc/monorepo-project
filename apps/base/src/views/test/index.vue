@@ -1,21 +1,20 @@
-
 <script setup>
-import { ref } from 'vue';
-import { MyButton } from '@lisc/components'
-import {
-  useCounterStore
-} from '@/stores/counter'
-const counterStore = useCounterStore()
-const feature = ref();
+// import { ref } from 'vue';
+import { MyButton } from "@lisc/components";
+import { useCounterStore } from "@/stores/counter";
+const counterStore = useCounterStore();
+// const feature = ref();
 </script>
 
 <template>
-    <div class="test-container">
-      测试页面
-      <span class="test-text">123</span>
-      <MyButton/>
-      <a-button @click="counterStore.increment">+1({{ counterStore.count }})</a-button>
-    </div>
+  <div class="test-container">
+    测试页面
+    <span class="test-text">123</span>
+    <MyButton />
+    <a-button @click="counterStore.increment"
+      >+1({{ counterStore.count }})</a-button
+    >
+  </div>
 </template>
 <style lang="less" scoped>
 .test-container {
